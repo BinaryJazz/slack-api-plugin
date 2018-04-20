@@ -38,13 +38,12 @@ class Genre extends Base {
 		}
 
 		if ( isset( $_POST['text'] ) && 'help' == $_POST['text'] ) {
-			return <<<HELP
-				/genre will provide a music genre.
-				/genre x where x is an integer will provide a list of genres.
-				/genre story returns a short story.
-				/genre help displays this text.
-HELP;
+			$help_text = '/genre will provide a music genre.';
+			$help_text .= PHP_EOL . '/genre x where x is an integer will provide a list of genres.';
+			$help_text .= PHP_EOL . '/genre story returns a short story.';
+			$help_text .= PHP_EOL . '/genre help displays this text.';
 
+			return $help_text;
 		}
 
 		$count = (int) isset( $_POST['text'] ) ? $_POST['text'] : 1;
