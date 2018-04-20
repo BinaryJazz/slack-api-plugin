@@ -9,14 +9,18 @@ class Post_Message {
 
 	const ENDPOINT = 'https://slack.com/api/chat.postMessage';
 
-	public function send( $token, $channel, $message ) {
+	public function send( $endpoint = null, $token, $channel, $message ) {
+
+		if ( null == $endpoint ) {
+			$endpoint = self::ENDPOINT;
+		}
 
 		$message['channel'] = $channel;
 
-		$result = wp_remote_post( self::ENDPOINT,
+		$result = wp_remote_post( $endpoint,
 			[
 				'headers' => [
-					'Content-Type' => 'application/json',
+					'Content-Type'  => 'application/json',
 					'Authorization' => "Bearer $token",
 				],
 				'body'    => json_encode( $message ),
@@ -25,7 +29,7 @@ class Post_Message {
 
 		// Log the request results.
 		$args = [
-			'post_content' => print_r( $result, 1) . print_r( $message, 1 ),
+			'post_content' => print_r( $result, 1 ) . print_r( $message, 1 ),
 			'post_status'  => 'publish',
 			'post_type'    => Message_Log::POST_TYPE,
 			'post_title'   => $channel,

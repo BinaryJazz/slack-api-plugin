@@ -19,7 +19,7 @@ class Genre extends Base {
 	}
 
 	public function genre() {
-
+		return \BinaryJazz\Genrenator\get_genre();
 	}
 
 }
