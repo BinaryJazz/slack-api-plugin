@@ -1,0 +1,27 @@
+{
+  "name": "binaryjazz/slack-api-plugin",
+  "description": "A plugin that creates a framework for working with slack.",
+  "type": "wordpress-plugin",
+  "require": {
+    "pimple/pimple": "^3.2"
+  },
+  "authors": [
+    {
+      "name": "Gary Kovar",
+      "email": "plugins@binarygary.com"
+    },
+    {
+      "name": "Allison Tarr"
+    },
+    {
+      "name": "Chris Reynolds"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "BinaryJazz\\Slack\\": "src/"
+    },
+    "files": [
+    ]
+  }
+}
