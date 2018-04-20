@@ -30,11 +30,14 @@ class Genre extends Base {
 		$genre = '';
 		$x     = 1;
 		do{
-			$genre .= \BinaryJazz\Genrenator\get_genre();
+			$genre .= \BinaryJazz\Genrenator\get_genre() . PHP_EOL;
 			$x++;
 		} while ( $x <= $count );
 
-		return $genre;
+		return [
+			'response_type' => 'in_channel',
+			'text'          => $genre,
+		];
 	}
 
 }
