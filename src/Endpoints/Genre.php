@@ -25,6 +25,10 @@ class Genre extends Base {
 			return 'token failure';
 		}
 
+		if ( isset( $_POST['text'] ) && 'story' == $_POST['text'] ) {
+			return \BinaryJazz\Genrenator\get_genre_story();
+		}
+
 		$count = (int) isset( $_POST['text'] ) ? $_POST['text'] : 1;
 
 		$genre = '';
