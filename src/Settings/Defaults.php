@@ -10,6 +10,7 @@ class Defaults {
 
 	const SLACK_APP_ID     = 'slack_app_id';
 	const SLACK_APP_SECRET = 'slack_app_secret';
+	const SLACK_TOKEN      = 'slack_verification_token';
 
 	const SUCCESS_MESSAGE = 'slack_success_message';
 
@@ -31,6 +32,7 @@ class Defaults {
 		return [
 			self::SLACK_APP_ID     => __( 'Slack APP ID', 'tribe' ),
 			self::SLACK_APP_SECRET => __( 'Slack APP Secret', 'tribe' ),
+			self::SLACK_TOKEN      => __( 'Slack Verification Token', 'tribe' ),
 			self::SUCCESS_MESSAGE  => __( 'Success Message', 'tribe' ),
 		];
 	}
@@ -46,6 +48,7 @@ class Defaults {
 		register_setting( self::SETTINGS_GROUP, self::SLACK_APP_ID );
 		register_setting( self::SETTINGS_GROUP, self::SLACK_APP_SECRET );
 		register_setting( self::SETTINGS_GROUP, self::SUCCESS_MESSAGE );
+		register_setting( self::SETTINGS_GROUP, self::SLACK_TOKEN );
 		register_setting( self::SETTINGS_GROUP, self::SUCCESS_PAGE );
 		register_setting( self::SETTINGS_GROUP, self::FAILURE_PAGE );
 
