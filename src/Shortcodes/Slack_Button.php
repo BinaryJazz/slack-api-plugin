@@ -7,7 +7,7 @@ use BinaryJazz\Slack\Settings\Defaults;
 
 class Slack_Button {
 
-	const ENDPOINT = 'https://slack.com/oauth/authorize?scope=incoming-webhook';
+	const ENDPOINT = 'https://slack.com/oauth/authorize?scope=incoming-webhook,users.profile:write';
 
 	/**
 	 * @var OAuth

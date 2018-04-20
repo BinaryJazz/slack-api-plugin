@@ -3,6 +3,7 @@
 namespace BinaryJazz\Slack\Endpoints;
 
 
+use BinaryJazz\Slack\Post_Types\Slack_Team;
 use BinaryJazz\Slack\Settings\Defaults;
 
 class Genre extends Base {
@@ -21,7 +22,7 @@ class Genre extends Base {
 	}
 
 	public function genre() {
-		if ( get_option( Defaults::SLACK_TOKEN) !== $_POST['token'] ) {
+		if ( get_option( Defaults::SLACK_TOKEN ) !== $_POST['token'] ) {
 			return 'token failure';
 		}
 
@@ -32,13 +33,27 @@ class Genre extends Base {
 			];
 		}
 
+		if ( isset( $_POST['text'] ) && 'story' == $_POST['text'] ) {
+			$this->message->send( 'https://slack.com/api/users.profile.set', $this->get_token( $_POST['team_id'] ), $_POST['channel_id'], [
+				'profile' => [
+					'fields' => [
+						'status_text'  => printf( 'listening to %s', \BinaryJazz\Genrenator\get_genre() ),
+						'status_emoji' => ':musical_note:',
+					],
+				],
+			] );
+
+			return 'please hold...';
+
+		}
+
 		$count = (int) isset( $_POST['text'] ) ? $_POST['text'] : 1;
 
 		$genre = '';
 		$x     = 1;
-		do{
+		do {
 			$genre .= \BinaryJazz\Genrenator\get_genre() . PHP_EOL;
-			$x++;
+			$x ++;
 		} while ( $x <= $count );
 
 		return [
@@ -47,4 +62,7 @@ class Genre extends Base {
 		];
 	}
 
+	private function get_token( $team_id ) {
+		return get_page_by_title( $team_id, OBJECT, Slack_Team::POST_TYPE )->post_content;
+	}
 }
