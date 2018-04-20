@@ -37,7 +37,7 @@ class Genre extends Base {
 			$this->message->send( 'https://slack.com/api/users.profile.set', $this->get_token( $_POST['team_id'] ), $_POST['channel_id'], [
 				'profile' => [
 					'fields' => [
-						'status_text'  => printf( 'listening to %s', \BinaryJazz\Genrenator\get_genre() ),
+						'status_text'  => sprintf( 'listening to %s', \BinaryJazz\Genrenator\get_genre() ),
 						'status_emoji' => ':musical_note:',
 					],
 				],

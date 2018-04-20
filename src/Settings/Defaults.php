@@ -79,7 +79,7 @@ class Defaults {
 				$field . '_section',
 				$title,
 				function () use ( $field ) {
-					printf( '<input value="%s" name="%s">',
+					printf( '<input value="%s" name="%s" class="regular-text">',
 						get_option( $field ),
 						$field
 					);
