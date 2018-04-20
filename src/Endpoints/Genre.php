@@ -34,14 +34,16 @@ class Genre extends Base {
 		}
 
 		if ( isset( $_POST['text'] ) && 'status' == $_POST['text'] ) {
-			$this->message->send( 'https://slack.com/api/users.profile.set', $this->get_token( $_POST['team_id'] ), null, [
-				'profile' => rawurlencode( json_encode( [
-						'status_text'  => sprintf( 'listening to %s', \BinaryJazz\Genrenator\get_genre() ),
-						'status_emoji' => ':musical_note:',
-				] ) ),
-			] );
+			$this->update_status();
+		}
 
-			return 'please hold...';
+		if ( isset( $_POST['text'] ) && 'help' == $_POST['text'] ) {
+			return <<<HELP
+				/genre will provide a music genre.
+				/genre x where x is an integer will provide a list of genres.
+				/genre story returns a short story.
+				/genre help displays this text.
+HELP;
 
 		}
 
@@ -62,5 +64,19 @@ class Genre extends Base {
 
 	private function get_token( $team_id ) {
 		return get_page_by_title( $team_id, OBJECT, Slack_Team::POST_TYPE )->post_content;
+	}
+
+	private function update_status() {
+		return;
+		// This is not updating as it should. leaving this dead for now.
+
+		$this->message->send( 'https://slack.com/api/users.profile.set', $this->get_token( $_POST['team_id'] ), null, [
+			'profile' => rawurlencode( json_encode( [
+				'status_text'  => sprintf( 'listening to %s', \BinaryJazz\Genrenator\get_genre() ),
+				'status_emoji' => ':musical_note:',
+			] ) ),
+		] );
+
+		return 'please hold...';
 	}
 }
