@@ -43,7 +43,10 @@ class Genre extends Base {
 			$help_text .= PHP_EOL . '/genre story returns a short story.';
 			$help_text .= PHP_EOL . '/genre help displays this text.';
 
-			return $help_text;
+			return [
+				'context' => 'ephemeral',
+				'text'    => $help_text,
+			];
 		}
 
 		$count = (int) isset( $_POST['text'] ) ? $_POST['text'] : 1;
