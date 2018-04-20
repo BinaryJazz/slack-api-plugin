@@ -58,7 +58,7 @@ class Defaults {
 
 		?>
 		<div class="wrap">
-			<h1>Rocket App Settings</h1>
+			<h1>Slack API Settings</h1>
 			<form method="post" action="options.php">
 				<?php
 				settings_fields( self::SETTINGS_GROUP );
