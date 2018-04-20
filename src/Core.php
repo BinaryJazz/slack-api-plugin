@@ -2,6 +2,11 @@
 
 namespace BinaryJazz\Slack;
 
+use BinaryJazz\Slack\Service_Providers\Endpoints_Provider;
+use BinaryJazz\Slack\Service_Providers\Post_Type_Provider;
+use BinaryJazz\Slack\Service_Providers\Settings_Provider;
+use BinaryJazz\Slack\Service_Providers\Shortcodes_Provider;
+use BinaryJazz\Slack\Service_Providers\Slack_Provider;
 use Pimple\Container;
 
 class Core {
@@ -30,6 +35,11 @@ class Core {
 	}
 
 	private function load_service_providers() {
+		$this->container->register( new Endpoints_Provider() );
+		$this->container->register( new Post_Type_Provider() );
+		$this->container->register( new Settings_Provider() );
+		$this->container->register( new Shortcodes_Provider() );
+		$this->container->register( new Slack_Provider() );
 	}
 
 	public function container() {

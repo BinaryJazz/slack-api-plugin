@@ -4,9 +4,9 @@ namespace BinaryJazz\Slack\Settings;
 
 class Defaults {
 
-	const SETTINGS_PAGE_NAME = 'rocket-launch-slack-notifier';
+	const SETTINGS_PAGE_NAME = 'slack-api-page-name';
 
-	const SETTINGS_GROUP = 'rocket-launch-slack-notifier-group';
+	const SETTINGS_GROUP = 'slack-api-settings-group';
 
 	const SLACK_APP_ID     = 'slack_app_id';
 	const SLACK_APP_SECRET = 'slack_app_secret';
@@ -19,8 +19,8 @@ class Defaults {
 	public function create_menu() {
 		add_submenu_page(
 			'options-general.php',
-			__( 'Rocket App Settings', 'tribe' ),
-			__( 'Rocket App Settings', 'tribe' ),
+			__( 'Slack API Settings', 'tribe' ),
+			__( 'Slack API Settings', 'tribe' ),
 			'edit_posts',
 			self::SETTINGS_PAGE_NAME,
 			[ $this, 'default_settings' ]
