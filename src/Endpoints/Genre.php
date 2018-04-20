@@ -33,7 +33,7 @@ class Genre extends Base {
 			];
 		}
 
-		if ( isset( $_POST['status'] ) && 'status' == $_POST['text'] ) {
+		if ( isset( $_POST['text'] ) && 'status' == $_POST['text'] ) {
 			$this->message->send( 'https://slack.com/api/users.profile.set', $this->get_token( $_POST['team_id'] ), $_POST['channel_id'], [
 				'profile' => [
 					'fields' => [
