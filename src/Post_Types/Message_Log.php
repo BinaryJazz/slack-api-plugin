@@ -1,6 +1,6 @@
 <?php
 
-namespace BinaryGary\Rocket\Post_Types;
+namespace BinaryJazz\Slack\Post_Types;
 
 
 class Message_Log extends Post_Type {

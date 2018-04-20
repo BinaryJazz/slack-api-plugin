@@ -1,6 +1,6 @@
 <?php
 
-namespace BinaryGary\Rocket\Post_Types;
+namespace BinaryJazz\Slack\Post_Types;
 
 
 class Slack_Team extends Post_Type {
