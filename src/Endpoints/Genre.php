@@ -50,6 +50,7 @@ class Genre extends Base {
 		}
 
 		$count = (int) isset( $_POST['text'] ) ? $_POST['text'] : 1;
+		$count = $count > 5 ? 5 : $count;
 
 		$genre = '';
 		$x     = 1;
