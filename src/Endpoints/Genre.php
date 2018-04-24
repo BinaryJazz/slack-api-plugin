@@ -42,6 +42,7 @@ class Genre extends Base {
 			$help_text .= PHP_EOL . '/genre x where x is an integer will provide a list of genres.';
 			$help_text .= PHP_EOL . '/genre story returns a short story.';
 			$help_text .= PHP_EOL . '/genre help displays this text.';
+			$help_text .= PHP_EOL . '_genrenator is a binaryjazz.us project._';
 
 			return [
 				'context' => 'ephemeral',
