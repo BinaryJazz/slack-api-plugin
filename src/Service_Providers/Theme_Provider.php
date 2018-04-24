@@ -3,7 +3,7 @@
 namespace BinaryJazz\Slack\Service_Providers;
 
 
-use BinaryJazz\Theme\Header\Header;
+use BinaryJazz\Slack\Theme\Header;
 use Pimple\Container;
 use Pimple\ServiceProviderInterface;
 

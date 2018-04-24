@@ -1,6 +1,6 @@
 <?php
 
-namespace BinaryJazz\Theme\Header;
+namespace BinaryJazz\Slack\Theme;
 
 
 class Header {
