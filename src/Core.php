@@ -7,6 +7,7 @@ use BinaryJazz\Slack\Service_Providers\Post_Type_Provider;
 use BinaryJazz\Slack\Service_Providers\Settings_Provider;
 use BinaryJazz\Slack\Service_Providers\Shortcodes_Provider;
 use BinaryJazz\Slack\Service_Providers\Slack_Provider;
+use BinaryJazz\Slack\Service_Providers\Theme_Provider;
 use Pimple\Container;
 
 class Core {
@@ -40,6 +41,7 @@ class Core {
 		$this->container->register( new Settings_Provider() );
 		$this->container->register( new Shortcodes_Provider() );
 		$this->container->register( new Slack_Provider() );
+		$this->container->register( new Theme_Provider() );
 	}
 
 	public function container() {
