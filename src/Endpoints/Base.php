@@ -23,7 +23,7 @@ abstract class Base {
 	abstract public function endpoint();
 
 	public function get_endpoint_url() {
-		return get_rest_url( get_current_blog_id(), self::PATH . $this->endpoint() );
+		return str_replace( 'http://', 'https://', get_rest_url( get_current_blog_id(), self::PATH . $this->endpoint() ) );
 	}
 
 }
