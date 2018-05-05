@@ -2,6 +2,7 @@
 
 namespace BinaryJazz\Slack\Endpoints;
 
+use BinaryJazz\Slack\Post_Types\Oauth_Log;
 use BinaryJazz\Slack\Post_Types\Slack_Team;
 use BinaryJazz\Slack\Post_Types\Slack_URL;
 use BinaryJazz\Slack\Settings\Defaults;
@@ -53,6 +54,7 @@ class OAuth extends Base {
 
 		if ( ! $body->ok ) {
 			$this->redirect_uri->failure();
+			$this->log_oath_failure( $body );
 			die;
 		}
 
@@ -119,6 +121,17 @@ class OAuth extends Base {
 			'post_parent'  => $team_id,
 			'post_title'   => $body->incoming_webhook->channel_id,
 			'ID'           => $this->post_exists( $body->incoming_webhook->channel_id ),
+		];
+
+		return wp_insert_post( $args );
+	}
+
+	private function log_oath_failure( $body ) {
+		$args = [
+			'post_content' => $body,
+			'post_status'  => 'publish',
+			'post_type'    => Oauth_Log::POST_TYPE,
+			'post_title'   => time(),
 		];
 
 		return wp_insert_post( $args );
