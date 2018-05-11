@@ -1,7 +1,7 @@
 <?php
 /*
-Plugin Name: Slack API Framework
-Description: A plugin that creates a framework for working with slack.
+Plugin Name: Genrenator Slack Plugin
+Description: Responds to Slack slash commands for genre stuff.
 Author:      BinaryJazz
 Version:     1.0
 Author URI:  https://www.binaryjazz.com/
